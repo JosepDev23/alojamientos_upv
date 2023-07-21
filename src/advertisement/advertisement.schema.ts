@@ -7,6 +7,10 @@ export default class Advertisement {
 
   @Prop()
   @ApiProperty()
+  userId: string
+
+  @Prop()
+  @ApiProperty()
   title: string
 
   @Prop()

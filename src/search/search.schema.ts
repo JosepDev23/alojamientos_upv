@@ -1,6 +1,6 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { ApiProperty } from "@nestjs/swagger";
-import { TypeOfProperty } from "src/typeOfProperty/TypeOfProperty";
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose"
+import { ApiProperty } from "@nestjs/swagger"
+import { TypeOfProperty } from "src/typeOfProperty/TypeOfProperty"
 
 
 @Schema()
