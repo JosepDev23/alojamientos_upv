@@ -26,11 +26,5 @@ export class AdvertisementController {
   async postAdvertisement(@Body() advertisement: Advertisement): Promise<Advertisement> {
     return this.advertisementService.save(advertisement)
   }
-
-  @Delete()
-  @ApiOperation({ summary: 'Deletes all advertisements' })
-  @ApiResponse({ status: 200, description: 'Number of deleted advertisements' })
-  async deleteAllAdvertisements(): Promise<{ deletedCount?: number }> {
-    return this.advertisementService.deleteAll()
-  }
+  
 }

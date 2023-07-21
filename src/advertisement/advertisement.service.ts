@@ -15,8 +15,5 @@ export class AdvertisementService {
     const savedAdvertisement = new this.advertisementModel(advertisement)
     return savedAdvertisement.save()
   }
-
-  async deleteAll(): Promise<{ deletedCount?: number }> {
-    return this.advertisementModel.deleteMany().exec()
-  }
+  
 }
