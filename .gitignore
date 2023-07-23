@@ -34,4 +34,8 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# environment
 *.env
+
+# misc
+alojamientos-upv-imgs-firebase-adminsdk-u56lw-625e5a3db9.json

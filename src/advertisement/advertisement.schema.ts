@@ -24,6 +24,11 @@ export default class Advertisement {
   @Prop()
   @ApiProperty()
   typeOfProperty: TypeOfProperty
+
+  @Prop([String])
+  @ApiProperty()
+  imageUrls: string[]
+  
 }
 
 export const AdvertisementSchema = SchemaFactory.createForClass(Advertisement)
