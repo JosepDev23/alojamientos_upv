@@ -28,6 +28,10 @@ export default class Advertisement {
   @Prop([String])
   @ApiProperty()
   imageUrls: string[]
+
+  @Prop()
+  @ApiProperty()
+  street: string
   
 }
 
