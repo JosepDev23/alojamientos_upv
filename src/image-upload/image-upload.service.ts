@@ -10,7 +10,8 @@ export class ImageUploadService {
   constructor() {
     this.storage = new Storage({
       projectId: 'alojamientos-upv-imgs',
-      keyFilename: 'alojamientos-upv-imgs-firebase-adminsdk-u56lw-625e5a3db9.json',
+      keyFilename:
+        'alojamientos-upv-imgs-firebase-adminsdk-u56lw-625e5a3db9.json',
     })
     this.bucketName = 'alojamientos-upv-imgs.appspot.com'
   }
@@ -32,7 +33,9 @@ export class ImageUploadService {
     return new Promise((resolve, reject) => {
       stream.on('error', reject)
       stream.on('finish', () => {
-        const publicUrl = `https://firebasestorage.googleapis.com/v0/b/${this.bucketName}/o/${encodeURIComponent(fileName)}?alt=media`;
+        const publicUrl = `https://firebasestorage.googleapis.com/v0/b/${
+          this.bucketName
+        }/o/${encodeURIComponent(fileName)}?alt=media`
         resolve(publicUrl)
       })
     })
