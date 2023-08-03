@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  Param,
   Post,
   Query,
   UseGuards,
@@ -65,7 +66,7 @@ export class AdvertisementController {
     type: String,
     description: 'Id',
   })
-  async getAdvertisementsById(@Query('id') id: string) {
+  async getAdvertisementsById(@Param('id') id: string) {
     return this.advertisementService.findById(id)
   }
 
