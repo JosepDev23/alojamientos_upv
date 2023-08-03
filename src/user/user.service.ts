@@ -14,11 +14,6 @@ export class UserService {
     private jwtService: JwtService
   ) {}
 
-  async save(user: User): Promise<User> {
-    const savedUser = new this.userModel(user)
-    return savedUser.save()
-  }
-
   async register(registerAuthDto: RegisterAuthDto): Promise<User> {
     const { password } = registerAuthDto
     const plainToHash = await hash(password, 10)

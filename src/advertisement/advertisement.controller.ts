@@ -1,8 +1,25 @@
-import { Body, Controller, Delete, Get, Post, Query } from '@nestjs/common'
-import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger'
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common'
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiQuery,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger'
 import { AdvertisementService } from './advertisement.service'
 import Advertisement from './advertisement.schema'
+import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard'
 
+@ApiBearerAuth()
+@UseGuards(JwtAuthGuard)
 @ApiTags('advertisements')
 @Controller('advertisement')
 export class AdvertisementController {

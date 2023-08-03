@@ -6,6 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule)
 
   const config = new DocumentBuilder()
+    .addBearerAuth()
     .setTitle('alojamientos-upv-dev')
     .setDescription('swagger documentation to my tfg')
     .setVersion('0.1')

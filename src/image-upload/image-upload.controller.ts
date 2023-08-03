@@ -2,12 +2,22 @@ import {
   Controller,
   Post,
   UploadedFiles,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common'
-import { ApiBody, ApiConsumes, ApiOperation, ApiTags } from '@nestjs/swagger'
+import {
+  ApiBearerAuth,
+  ApiBody,
+  ApiConsumes,
+  ApiOperation,
+  ApiTags,
+} from '@nestjs/swagger'
 import { ImageUploadService } from './image-upload.service'
 import { FilesInterceptor } from '@nestjs/platform-express'
+import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard'
 
+@ApiBearerAuth()
+@UseGuards(JwtAuthGuard)
 @ApiTags('image-upload')
 @Controller('image-upload')
 export class ImageUploadController {
