@@ -3,6 +3,7 @@ import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
 import { UserService } from './user.service'
 import User from './user.schema'
 import { RegisterAuthDto } from './dto/register-auth.dto'
+import { LoginAuthDto } from './dto/login-auth.dto'
 
 @ApiTags('users')
 @Controller('user')
@@ -27,7 +28,18 @@ export class UserController {
     description: 'User created successfully',
     type: User,
   })
-  async registerUser(@Body() registerAuthDto: RegisterAuthDto) {
+  async registerUser(@Body() registerAuthDto: RegisterAuthDto): Promise<User> {
     return this.userService.register(registerAuthDto)
+  }
+
+  @Post('/login')
+  @ApiOperation({ summary: 'Login a user' })
+  @ApiResponse({
+    status: 201,
+    description: 'User logged successfully',
+    type: User,
+  })
+  async loginUser(@Body() loginAuthDto: LoginAuthDto): Promise<User> {
+    return this.userService.login(loginAuthDto)
   }
 }
