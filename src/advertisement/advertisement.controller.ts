@@ -10,6 +10,7 @@ import {
 import {
   ApiBearerAuth,
   ApiOperation,
+  ApiParam,
   ApiQuery,
   ApiResponse,
   ApiTags,
@@ -47,6 +48,25 @@ export class AdvertisementController {
     @Query('offset') offset?: number
   ) {
     return this.advertisementService.findAll(limit, offset)
+  }
+
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  @Get(':id')
+  @ApiOperation({ summary: 'Get advertisement by id' })
+  @ApiResponse({
+    status: 200,
+    description: 'Advertisement by id',
+    type: Advertisement,
+  })
+  @ApiParam({
+    name: 'id',
+    required: true,
+    type: String,
+    description: 'Id',
+  })
+  async getAdvertisementsById(@Query('id') id: string) {
+    return this.advertisementService.findById(id)
   }
 
   @ApiBearerAuth()

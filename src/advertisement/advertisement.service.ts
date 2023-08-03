@@ -14,6 +14,11 @@ export class AdvertisementService {
     return this.advertisementModel.find().limit(limit).skip(offset).exec()
   }
 
+  async findById(id: string): Promise<Advertisement> {
+    const filter = { _id: new RegExp(id, 'i') }
+    return this.advertisementModel.find(filter).exec()[0]
+  }
+
   async save(advertisement: Advertisement): Promise<Advertisement> {
     const savedAdvertisement = new this.advertisementModel(advertisement)
     return savedAdvertisement.save()
