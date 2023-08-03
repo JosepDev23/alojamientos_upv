@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common'
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common'
 import {
   ApiBearerAuth,
   ApiOperation,
@@ -62,7 +70,7 @@ export class SearchController {
     description: 'User id',
   })
   async getSearchesByUserId(
-    @Query('userId') userId: string,
+    @Param('userId') userId: string,
     @Query('limit') limit?: number,
     @Query('offset') offset?: number
   ) {

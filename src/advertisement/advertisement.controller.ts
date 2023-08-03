@@ -72,6 +72,42 @@ export class AdvertisementController {
 
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
+  @Get(':userId')
+  @ApiOperation({ summary: 'Get all advertisements by user id' })
+  @ApiResponse({
+    status: 200,
+    description: 'Advertisements list',
+    type: [Advertisement],
+  })
+  @ApiQuery({
+    name: 'limit',
+    required: false,
+    type: Number,
+    description: 'Advertisements limit by page',
+  })
+  @ApiQuery({
+    name: 'offset',
+    required: false,
+    type: Number,
+    description: 'Initial index for pagination',
+  })
+  @ApiParam({
+    name: 'userId',
+    required: true,
+    type: String,
+    description: 'User id',
+  })
+  async getAdvertisementsByUserId(
+    @Param('userId') userId: string,
+    @Query('limit') limit?: number,
+    @Query('offset') offset?: number
+  ) {
+    console.error('jacinto', userId)
+    return this.advertisementService.findByUserId(limit, offset, userId)
+  }
+
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   @Post()
   @ApiOperation({ summary: 'Create a new advertisement' })
   @ApiResponse({
