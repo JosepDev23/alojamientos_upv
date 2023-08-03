@@ -18,8 +18,6 @@ import { AdvertisementService } from './advertisement.service'
 import Advertisement from './advertisement.schema'
 import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard'
 
-@ApiBearerAuth()
-@UseGuards(JwtAuthGuard)
 @ApiTags('advertisements')
 @Controller('advertisement')
 export class AdvertisementController {
@@ -51,6 +49,8 @@ export class AdvertisementController {
     return this.advertisementService.findAll(limit, offset)
   }
 
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   @Post()
   @ApiOperation({ summary: 'Create a new advertisement' })
   @ApiResponse({
