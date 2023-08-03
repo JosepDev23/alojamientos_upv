@@ -5,10 +5,14 @@ import User from './user.schema'
 import { RegisterAuthDto } from './dto/register-auth.dto'
 import { hash, compare } from 'bcrypt'
 import { LoginAuthDto } from './dto/login-auth.dto'
+import { JwtService } from '@nestjs/jwt'
 
 @Injectable()
 export class UserService {
-  constructor(@InjectModel('User') private userModel: Model<User>) {}
+  constructor(
+    @InjectModel('User') private userModel: Model<User>,
+    private jwtService: JwtService
+  ) {}
 
   async save(user: User): Promise<User> {
     const savedUser = new this.userModel(user)
@@ -26,7 +30,7 @@ export class UserService {
     return savedUser.save()
   }
 
-  async login(loginAuthDto: LoginAuthDto): Promise<User> {
+  async login(loginAuthDto: LoginAuthDto) {
     const { username, password } = loginAuthDto
     const findUser = await this.userModel.findOne({ username })
     if (!findUser) throw new HttpException('USER_NOT_FOUND', 404)
@@ -34,6 +38,14 @@ export class UserService {
     const checkPassword = await compare(password, findUser.password)
     if (!checkPassword) throw new HttpException('WRONG_PASSWORD', 403)
 
-    return findUser
+    const payload = { id: findUser._id, name: findUser.username }
+    const token = this.jwtService.sign(payload)
+
+    const data = {
+      user: findUser,
+      token,
+    }
+
+    return data
   }
 }
