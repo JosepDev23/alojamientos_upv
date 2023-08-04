@@ -23,8 +23,11 @@ export class AdvertisementService {
     offset: number,
     userId: string
   ): Promise<Advertisement[]> {
-    const filter = { userId: userId }
-    return this.advertisementModel.find(filter).limit(limit).skip(offset).exec()
+    return this.advertisementModel
+      .find({ userId })
+      .limit(limit)
+      .skip(offset)
+      .exec()
   }
 
   async save(advertisement: Advertisement): Promise<Advertisement> {

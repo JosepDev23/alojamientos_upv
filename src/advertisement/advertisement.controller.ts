@@ -72,7 +72,7 @@ export class AdvertisementController {
 
   @ApiBearerAuth()
   @UseGuards(JwtAuthGuard)
-  @Get(':userId')
+  @Get('userId/:userId')
   @ApiOperation({ summary: 'Get all advertisements by user id' })
   @ApiResponse({
     status: 200,
@@ -102,7 +102,6 @@ export class AdvertisementController {
     @Query('limit') limit?: number,
     @Query('offset') offset?: number
   ) {
-    console.error('jacinto', userId)
     return this.advertisementService.findByUserId(limit, offset, userId)
   }
 
