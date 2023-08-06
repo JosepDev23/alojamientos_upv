@@ -3,9 +3,9 @@ import { AdvertisementModule } from './advertisement/advertisement.module'
 import { MongooseModule } from '@nestjs/mongoose'
 import { ConfigModule } from '@nestjs/config'
 import { UserModule } from './user/user.module'
-import { SearchModule } from './search/search.module';
-import { ImageUploadService } from './image-upload/image-upload.service';
-import { ImageUploadController } from './image-upload/image-upload.controller';
+import { SearchModule } from './search/search.module'
+import { ImageUploadService } from './image-upload/image-upload.service'
+import { ImageUploadController } from './image-upload/image-upload.controller'
 
 @Module({
   imports: [
@@ -15,9 +15,9 @@ import { ImageUploadController } from './image-upload/image-upload.controller';
     ),
     AdvertisementModule,
     UserModule,
-    SearchModule
+    SearchModule,
   ],
   providers: [ImageUploadService],
-  controllers: [ImageUploadController]
+  controllers: [ImageUploadController],
 })
-export class AppModule { }
+export class AppModule {}

@@ -6,6 +6,7 @@ import { RegisterAuthDto } from './dto/register-auth.dto'
 import { hash, compare } from 'bcrypt'
 import { LoginAuthDto } from './dto/login-auth.dto'
 import { JwtService } from '@nestjs/jwt'
+import { UserPutDto } from './dto/user-put.dto'
 
 @Injectable()
 export class UserService {
@@ -42,5 +43,16 @@ export class UserService {
     }
 
     return data
+  }
+
+  async updateUser(id: string, userPutDto: UserPutDto) {
+    const { username, password } = userPutDto
+    const plainToHash = await hash(password, 10)
+    const updatedUser = await this.userModel.findByIdAndUpdate(
+      id,
+      { username, password: plainToHash },
+      { new: true }
+    )
+    return updatedUser
   }
 }
