@@ -1,7 +1,9 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
+  NotFoundException,
   Param,
   Post,
   Query,
@@ -86,5 +88,22 @@ export class SearchController {
   })
   async postSearch(@Body() search: Search): Promise<Search> {
     return this.searchService.save(search)
+  }
+
+  @Delete(':id')
+  @ApiOperation({ summary: 'Delete a search' })
+  @ApiResponse({
+    status: 200,
+    description: 'Search deleted successfully',
+    type: Search,
+  })
+  @ApiParam({
+    name: 'id',
+    required: true,
+    type: String,
+    description: 'Id',
+  })
+  async deleteSearch(@Param('id') id: string) {
+    return this.searchService.delete(id)
   }
 }

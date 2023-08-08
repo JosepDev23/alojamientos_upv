@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, NotFoundException } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import Search from './search.schema'
@@ -23,5 +23,9 @@ export class SearchService {
   async save(search: Search): Promise<Search> {
     const savedSearch = new this.searchModel(search)
     return savedSearch.save()
+  }
+
+  async delete(id: string): Promise<Search> {
+    return this.searchModel.findByIdAndDelete(id).exec()
   }
 }
