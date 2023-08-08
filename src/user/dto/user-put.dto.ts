@@ -11,4 +11,7 @@ export class UserPutDto {
   @IsNotEmpty()
   @ApiProperty()
   readonly password: string
+
+  @ApiProperty()
+  readonly favouriteAdvertisementsIds: string[]
 }
