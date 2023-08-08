@@ -46,11 +46,11 @@ export class UserService {
   }
 
   async updateUser(id: string, userPutDto: UserPutDto) {
-    const { username, password } = userPutDto
+    const { username, password, favouriteAdvertisementsIds } = userPutDto
     const plainToHash = await hash(password, 10)
     const updatedUser = await this.userModel.findByIdAndUpdate(
       id,
-      { username, password: plainToHash },
+      { username, password: plainToHash, favouriteAdvertisementsIds },
       { new: true }
     )
     return updatedUser
