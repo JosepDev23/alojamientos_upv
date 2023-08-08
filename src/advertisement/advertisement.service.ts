@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
-import { Model, Types } from 'mongoose'
+import { Model } from 'mongoose'
 import Advertisement from './advertisement.schema'
+import { TypeOfProperty } from 'src/typeOfProperty/TypeOfProperty'
 
 @Injectable()
 export class AdvertisementService {
@@ -10,8 +11,33 @@ export class AdvertisementService {
     private advertisementModel: Model<Advertisement>
   ) {}
 
-  async findAll(limit: number, offset: number): Promise<Advertisement[]> {
-    return this.advertisementModel.find().limit(limit).skip(offset).exec()
+  async findAll(
+    limit: number,
+    offset: number,
+    minPrice?: number,
+    maxPrice?: number,
+    typeOfProperty?: TypeOfProperty,
+    city?: string
+  ): Promise<Advertisement[]> {
+    const query: any = {}
+
+    if (minPrice) {
+      query.price = { $gte: minPrice }
+    }
+
+    if (maxPrice) {
+      query.price = { ...query.price, $lte: maxPrice }
+    }
+
+    if (typeOfProperty) {
+      query.typeOfProperty = typeOfProperty
+    }
+
+    if (city) {
+      query.city = city
+    }
+
+    return this.advertisementModel.find(query).limit(limit).skip(offset).exec()
   }
 
   async findById(id: string) {

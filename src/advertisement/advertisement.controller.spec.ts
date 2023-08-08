@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { AdvertisementController } from './advertisement.controller'
 import { AdvertisementService } from './advertisement.service'
-import Advertisement, { AdvertisementSchema } from './advertisement.schema'
+import Advertisement from './advertisement.schema'
 
 describe('AdvertisementController', () => {
   let controller: AdvertisementController
