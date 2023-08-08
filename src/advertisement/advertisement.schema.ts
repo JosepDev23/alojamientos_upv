@@ -30,7 +30,7 @@ export default class Advertisement {
 
   @Prop()
   @ApiProperty()
-  street: string
+  direction: string
 }
 
 export const AdvertisementSchema = SchemaFactory.createForClass(Advertisement)

@@ -40,7 +40,7 @@ describe('AdvertisementController', () => {
           price: 1,
           typeOfProperty: 'room',
           imageUrls: [],
-          street: 'street',
+          direction: 'street',
         },
         {
           userId: '2',
@@ -49,7 +49,7 @@ describe('AdvertisementController', () => {
           price: 2,
           typeOfProperty: 'apartment',
           imageUrls: [],
-          street: 'street2',
+          direction: 'street2',
         },
       ]
       jest.spyOn(service, 'findAll').mockResolvedValue(result)
@@ -67,7 +67,7 @@ describe('AdvertisementController', () => {
         price: 1,
         typeOfProperty: 'room',
         imageUrls: [],
-        street: 'street',
+        direction: 'street',
       }
       jest.spyOn(service, 'save').mockResolvedValue(result)
 
