@@ -155,4 +155,23 @@ export class AdvertisementController {
   ): Promise<Advertisement> {
     return this.advertisementService.save(advertisement)
   }
+
+  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
+  @Delete(':id')
+  @ApiOperation({ summary: 'Delete advertisement by id' })
+  @ApiResponse({
+    status: 200,
+    description: 'Advertisement deleted successfully',
+    type: Advertisement,
+  })
+  @ApiParam({
+    name: 'id',
+    required: true,
+    type: String,
+    description: 'Id',
+  })
+  async deleteAdvertisement(@Param('id') id: string) {
+    return this.advertisementService.delete(id)
+  }
 }

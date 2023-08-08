@@ -60,4 +60,8 @@ export class AdvertisementService {
     const savedAdvertisement = new this.advertisementModel(advertisement)
     return savedAdvertisement.save()
   }
+
+  async delete(id: string) {
+    return this.advertisementModel.findByIdAndDelete(id).exec()
+  }
 }
