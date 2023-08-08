@@ -5,13 +5,17 @@ import Search from './search.schema'
 
 @Injectable()
 export class SearchService {
-  constructor(@InjectModel('Search') private searchModel: Model<Search>) { }
+  constructor(@InjectModel('Search') private searchModel: Model<Search>) {}
 
   async findAll(limit: number, offset: number): Promise<Search[]> {
     return this.searchModel.find().limit(limit).skip(offset).exec()
   }
 
-  async findByUserId(limit: number, offset: number, userId: string): Promise<Search[]> {
+  async findByUserId(
+    limit: number,
+    offset: number,
+    userId: string
+  ): Promise<Search[]> {
     const filter = { userId: new RegExp(userId, 'i') }
     return this.searchModel.find(filter).limit(limit).skip(offset).exec()
   }
