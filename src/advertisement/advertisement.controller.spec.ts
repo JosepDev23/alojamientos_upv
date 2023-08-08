@@ -40,6 +40,7 @@ describe('AdvertisementController', () => {
           price: 1,
           typeOfProperty: 'room',
           imageUrls: [],
+          city: 'Valencia',
           direction: 'street',
         },
         {
@@ -49,6 +50,7 @@ describe('AdvertisementController', () => {
           price: 2,
           typeOfProperty: 'apartment',
           imageUrls: [],
+          city: 'Valencia',
           direction: 'street2',
         },
       ]
@@ -67,6 +69,7 @@ describe('AdvertisementController', () => {
         price: 1,
         typeOfProperty: 'room',
         imageUrls: [],
+        city: 'Valencia',
         direction: 'street',
       }
       jest.spyOn(service, 'save').mockResolvedValue(result)

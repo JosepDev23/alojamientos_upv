@@ -30,6 +30,10 @@ export default class Advertisement {
 
   @Prop()
   @ApiProperty()
+  city: string
+
+  @Prop()
+  @ApiProperty()
   direction: string
 }
 
