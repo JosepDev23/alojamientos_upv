@@ -1,4 +1,12 @@
-import { Body, Controller, Param, Post, Put, UseGuards } from '@nestjs/common'
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Put,
+  UseGuards,
+} from '@nestjs/common'
 import {
   ApiBearerAuth,
   ApiOperation,
@@ -60,5 +68,22 @@ export class UserController {
     @Body() userPutDto: UserPutDto
   ): Promise<User> {
     return this.userService.updateUser(id, userPutDto)
+  }
+
+  @Get('/:id')
+  @ApiOperation({ summary: 'Find a user by id' })
+  @ApiResponse({
+    status: 200,
+    description: 'User found successfully',
+    type: User,
+  })
+  @ApiParam({
+    name: 'id',
+    required: true,
+    type: String,
+    description: 'User id',
+  })
+  async findUserById(@Param('id') id: string): Promise<User> {
+    return this.userService.findUserById(id)
   }
 }

@@ -55,4 +55,8 @@ export class UserService {
     )
     return updatedUser
   }
+
+  async findUserById(id: string) {
+    return await this.userModel.findById(id).exec()
+  }
 }
