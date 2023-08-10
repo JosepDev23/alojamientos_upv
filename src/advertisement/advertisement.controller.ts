@@ -87,8 +87,6 @@ export class AdvertisementController {
     )
   }
 
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
   @Get(':id')
   @ApiOperation({ summary: 'Get advertisement by id' })
   @ApiResponse({
