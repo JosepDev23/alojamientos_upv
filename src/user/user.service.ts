@@ -28,7 +28,7 @@ export class UserService {
 
   async login(loginAuthDto: LoginAuthDto) {
     const { username, password } = loginAuthDto
-    const findUser = await this.userModel.findOne({ username })
+    let findUser = await this.userModel.findOne({ username })
     if (!findUser) throw new HttpException('USER_NOT_FOUND', 404)
 
     const checkPassword = await compare(password, findUser.password)
@@ -36,6 +36,8 @@ export class UserService {
 
     const payload = { id: findUser._id, name: findUser.username }
     const token = this.jwtService.sign(payload)
+
+    findUser.password = password
 
     const data = {
       user: findUser,
