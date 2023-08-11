@@ -39,11 +39,6 @@ export class UserService {
 
     findUser.password = password
 
-    console.log('jacinto', {
-      'finduser.password': findUser.password,
-      password: password,
-    })
-
     const data = {
       user: findUser,
       token,
@@ -55,11 +50,14 @@ export class UserService {
   async updateUser(id: string, userPutDto: UserPutDto) {
     const { username, password, favouriteAdvertisementsIds } = userPutDto
     const plainToHash = await hash(password, 10)
-    const updatedUser = await this.userModel.findByIdAndUpdate(
+    let updatedUser = await this.userModel.findByIdAndUpdate(
       id,
       { username, password: plainToHash, favouriteAdvertisementsIds },
       { new: true }
     )
+
+    updatedUser.password = password
+
     return updatedUser
   }
 
