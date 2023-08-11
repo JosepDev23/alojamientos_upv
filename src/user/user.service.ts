@@ -39,6 +39,11 @@ export class UserService {
 
     findUser.password = password
 
+    console.log('jacinto', {
+      'finduser.password': findUser.password,
+      password: password,
+    })
+
     const data = {
       user: findUser,
       token,
