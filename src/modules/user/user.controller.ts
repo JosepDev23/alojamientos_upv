@@ -16,9 +16,9 @@ import {
 } from '@nestjs/swagger'
 import { UserService } from './user.service'
 import User from './user.schema'
-import { RegisterAuthDto } from './dto/register-auth.dto'
-import { LoginAuthDto } from './dto/login-auth.dto'
-import { UserPutDto } from './dto/user-put.dto'
+import { RegisterAuthDto } from './Applitaction/dto/register-auth.dto'
+import { LoginAuthDto } from './Applitaction/dto/login-auth.dto'
+import { UserPutDto } from './Applitaction/dto/user-put.dto'
 import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard'
 
 @ApiTags('users')

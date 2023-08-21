@@ -1,5 +1,5 @@
-import { TypeOfProperty } from 'src/typeOfProperty/TypeOfProperty'
-import Advertisement from './advertisement.schema'
+import { TypeOfProperty } from 'src/modules/advertisement/Application/TypeOfProperty'
+import Advertisement from '../advertisement.schema'
 
 export default interface AdvertisementRepository {
   findAll(

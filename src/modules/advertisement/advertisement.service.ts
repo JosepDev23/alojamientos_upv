@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common'
 import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import Advertisement from './advertisement.schema'
-import { TypeOfProperty } from 'src/typeOfProperty/TypeOfProperty'
-import AdvertisementRepository from './advertisement.repository'
+import { TypeOfProperty } from 'src/modules/advertisement/Application/TypeOfProperty'
+import AdvertisementRepository from './Application/advertisement.repository'
 
 @Injectable()
 export class AdvertisementService implements AdvertisementRepository {

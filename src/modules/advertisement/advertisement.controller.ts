@@ -18,7 +18,7 @@ import {
 } from '@nestjs/swagger'
 import { AdvertisementService } from './advertisement.service'
 import Advertisement from './advertisement.schema'
-import { TypeOfProperty } from 'src/typeOfProperty/TypeOfProperty'
+import { TypeOfProperty } from 'src/modules/advertisement/Application/TypeOfProperty'
 import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard'
 
 @ApiTags('advertisements')
