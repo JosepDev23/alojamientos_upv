@@ -4,7 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 import Advertisement, {
   AdvertisementSchema,
 } from './Domain/advertisement.schema'
-import { AdvertisementController } from './advertisement.controller'
+import { AdvertisementController } from './Infrastructure/advertisement.controller'
 
 @Module({
   imports: [

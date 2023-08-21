@@ -5,7 +5,7 @@ import { ConfigModule } from '@nestjs/config'
 import { UserModule } from './modules/user/user.module'
 import { SearchModule } from './modules/search/search.module'
 import { ImageUploadService } from './modules/image-upload/Domain/image-upload.service'
-import { ImageUploadController } from './modules/image-upload/image-upload.controller'
+import { ImageUploadController } from './modules/image-upload/Infrastructure/image-upload.controller'
 
 @Module({
   imports: [

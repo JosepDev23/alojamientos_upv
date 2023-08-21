@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common'
-import { SearchController } from './search.controller'
+import { SearchController } from './Infrastructure/search.controller'
 import { SearchService } from './Domain/search.service'
 import { MongooseModule } from '@nestjs/mongoose'
 import Search, { SearchSchema } from './Domain/search.schema'

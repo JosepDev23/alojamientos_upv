@@ -14,11 +14,11 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger'
-import { UserService } from './Domain/user.service'
-import User from './Domain/user.schema'
-import { RegisterAuthDto } from './Applitaction/dto/register-auth.dto'
-import { LoginAuthDto } from './Applitaction/dto/login-auth.dto'
-import { UserPutDto } from './Applitaction/dto/user-put.dto'
+import { UserService } from '../Domain/user.service'
+import User from '../Domain/user.schema'
+import { RegisterAuthDto } from '../Applitaction/dto/register-auth.dto'
+import { LoginAuthDto } from '../Applitaction/dto/login-auth.dto'
+import { UserPutDto } from '../Applitaction/dto/user-put.dto'
 import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard'
 
 @ApiTags('users')
