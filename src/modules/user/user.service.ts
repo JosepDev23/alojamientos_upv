@@ -26,7 +26,9 @@ export class UserService {
     return savedUser.save()
   }
 
-  async login(loginAuthDto: LoginAuthDto) {
+  async login(
+    loginAuthDto: LoginAuthDto
+  ): Promise<{ user: User; token: string }> {
     const { username, password } = loginAuthDto
     let findUser = await this.userModel.findOne({ username })
     if (!findUser) throw new HttpException('USER_NOT_FOUND', 404)
@@ -47,7 +49,7 @@ export class UserService {
     return data
   }
 
-  async updateUser(id: string, userPutDto: UserPutDto) {
+  async updateUser(id: string, userPutDto: UserPutDto): Promise<User> {
     const { username, password, favouriteAdvertisementsIds } = userPutDto
     const plainToHash = await hash(password, 10)
     let updatedUser = await this.userModel.findByIdAndUpdate(
@@ -61,7 +63,7 @@ export class UserService {
     return updatedUser
   }
 
-  async findUserById(id: string) {
+  async findUserById(id: string): Promise<User> {
     return await this.userModel.findById(id).exec()
   }
 }

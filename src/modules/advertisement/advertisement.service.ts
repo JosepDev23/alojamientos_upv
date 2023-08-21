@@ -3,9 +3,10 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import Advertisement from './advertisement.schema'
 import { TypeOfProperty } from 'src/typeOfProperty/TypeOfProperty'
+import AdvertisementRepository from './advertisement.repository'
 
 @Injectable()
-export class AdvertisementService {
+export class AdvertisementService implements AdvertisementRepository {
   constructor(
     @InjectModel('Advertisement')
     private advertisementModel: Model<Advertisement>
@@ -40,7 +41,7 @@ export class AdvertisementService {
     return this.advertisementModel.find(query).limit(limit).skip(offset).exec()
   }
 
-  async findById(id: string) {
+  async findById(id: string): Promise<Advertisement> {
     return this.advertisementModel.findById(id).exec()
   }
 
