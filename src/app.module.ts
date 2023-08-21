@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common'
-import { AdvertisementModule } from './advertisement/advertisement.module'
+import { AdvertisementModule } from './modules/advertisement/advertisement.module'
 import { MongooseModule } from '@nestjs/mongoose'
 import { ConfigModule } from '@nestjs/config'
-import { UserModule } from './user/user.module'
-import { SearchModule } from './search/search.module'
-import { ImageUploadService } from './image-upload/image-upload.service'
-import { ImageUploadController } from './image-upload/image-upload.controller'
+import { UserModule } from './modules/user/user.module'
+import { SearchModule } from './modules/search/search.module'
+import { ImageUploadService } from './modules/image-upload/image-upload.service'
+import { ImageUploadController } from './modules/image-upload/image-upload.controller'
 
 @Module({
   imports: [
