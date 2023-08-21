@@ -1,4 +1,4 @@
-import Search from '../search.schema'
+import Search from '../Domain/search.schema'
 
 export default interface SearchRepository {
   findAll(limit: number, offset: number): Promise<Search[]>

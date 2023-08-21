@@ -4,7 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { ConfigModule } from '@nestjs/config'
 import { UserModule } from './modules/user/user.module'
 import { SearchModule } from './modules/search/search.module'
-import { ImageUploadService } from './modules/image-upload/image-upload.service'
+import { ImageUploadService } from './modules/image-upload/Domain/image-upload.service'
 import { ImageUploadController } from './modules/image-upload/image-upload.controller'
 
 @Module({

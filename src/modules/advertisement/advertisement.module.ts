@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common'
-import { AdvertisementService } from './advertisement.service'
+import { AdvertisementService } from './Domain/advertisement.service'
 import { MongooseModule } from '@nestjs/mongoose'
-import Advertisement, { AdvertisementSchema } from './advertisement.schema'
+import Advertisement, {
+  AdvertisementSchema,
+} from './Domain/advertisement.schema'
 import { AdvertisementController } from './advertisement.controller'
 
 @Module({

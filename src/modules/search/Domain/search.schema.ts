@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { ApiProperty } from '@nestjs/swagger'
 import { TypeOfProperty } from 'src/modules/advertisement/Application/TypeOfProperty'
-import SearchEntity from './Application/search.entity'
+import SearchEntity from '../Application/search.entity'
 
 @Schema()
 export default class Search implements SearchEntity {

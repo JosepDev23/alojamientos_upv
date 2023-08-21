@@ -17,8 +17,8 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger'
-import { SearchService } from './search.service'
-import Search from './search.schema'
+import { SearchService } from './Domain/search.service'
+import Search from './Domain/search.schema'
 import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard'
 
 @ApiBearerAuth()

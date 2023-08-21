@@ -16,8 +16,8 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger'
-import { AdvertisementService } from './advertisement.service'
-import Advertisement from './advertisement.schema'
+import { AdvertisementService } from './Domain/advertisement.service'
+import Advertisement from './Domain/advertisement.schema'
 import { TypeOfProperty } from 'src/modules/advertisement/Application/TypeOfProperty'
 import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard'
 

@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { ImageUploadController } from './image-upload.controller'
-import { ImageUploadService } from './image-upload.service'
+import { ImageUploadService } from './Domain/image-upload.service'
 
 describe('ImageUploadController', () => {
   let controller: ImageUploadController

@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import Advertisement from './advertisement.schema'
 import { TypeOfProperty } from 'src/modules/advertisement/Application/TypeOfProperty'
-import AdvertisementRepository from './Application/advertisement.repository'
+import AdvertisementRepository from '../Application/advertisement.repository'
 
 @Injectable()
 export class AdvertisementService implements AdvertisementRepository {

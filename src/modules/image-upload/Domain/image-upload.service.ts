@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { Storage } from '@google-cloud/storage'
 import { v4 as uuidv4 } from 'uuid'
-import ImageUploadRepository from './Application/image-upload.repository'
+import ImageUploadRepository from '../Application/image-upload.repository'
 
 @Injectable()
 export class ImageUploadService implements ImageUploadRepository {

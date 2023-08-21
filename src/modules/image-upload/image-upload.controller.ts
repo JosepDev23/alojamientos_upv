@@ -12,7 +12,7 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger'
-import { ImageUploadService } from './image-upload.service'
+import { ImageUploadService } from './Domain/image-upload.service'
 import { FilesInterceptor } from '@nestjs/platform-express'
 import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard'
 
