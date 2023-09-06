@@ -19,7 +19,7 @@ import {
 import { AdvertisementService } from '../Domain/advertisement.service'
 import Advertisement from '../Domain/advertisement.schema'
 import { TypeOfProperty } from 'src/modules/advertisement/Application/TypeOfProperty'
-import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard'
+import { JwtAuthGuard } from '../../../jwt/jwt-auth.guard'
 
 @ApiTags('advertisements')
 @Controller('advertisement')

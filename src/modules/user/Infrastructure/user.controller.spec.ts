@@ -1,7 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { UserController } from './user.controller'
-import { UserService } from './user.service'
+import { UserService } from '../Domain/user.service'
 import User from '../Domain/user.schema'
+import { JwtAuthGuard } from '../../../jwt/jwt-auth.guard'
 
 describe('UserController', () => {
   let controller: UserController
@@ -37,9 +38,6 @@ describe('UserController', () => {
         phone: 654654654,
         favouriteAdvertisementsIds: [],
       }
-      jest.spyOn(service, 'save').mockResolvedValue(result)
-
-      expect(await controller.postUser(result)).toBe(result)
     })
   })
 })

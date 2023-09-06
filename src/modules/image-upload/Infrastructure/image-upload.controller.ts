@@ -14,7 +14,7 @@ import {
 } from '@nestjs/swagger'
 import { ImageUploadService } from '../Domain/image-upload.service'
 import { FilesInterceptor } from '@nestjs/platform-express'
-import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard'
+import { JwtAuthGuard } from '../../../jwt/jwt-auth.guard'
 
 @ApiBearerAuth()
 @UseGuards(JwtAuthGuard)

@@ -19,7 +19,7 @@ import {
 } from '@nestjs/swagger'
 import { SearchService } from '../Domain/search.service'
 import Search from '../Domain/search.schema'
-import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard'
+import { JwtAuthGuard } from '../../../jwt/jwt-auth.guard'
 
 @ApiBearerAuth()
 @UseGuards(JwtAuthGuard)
